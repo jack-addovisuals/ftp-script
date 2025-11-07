@@ -8,6 +8,7 @@ let iteration = 0;
 async function main() {
   await new Promise((res) => setTimeout(res, 3000));
 
+  console.log(process.env);
   while (true) {
     iteration++;
     debug(`🔄 Iteration ${iteration} ...\n`);
