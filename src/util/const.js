@@ -1,4 +1,4 @@
-import "dotenv/config";
+// import "dotenv/config";
 
 export const FTP_HOST = process.env.FTP_HOST || "";
 export const FTP_USER = process.env.FTP_USER || "";
