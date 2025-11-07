@@ -31,3 +31,5 @@ export const LONG_INTERVAL_MS = 60 * 60 * 1000; // 1 hour
 export const MAIL_USER = "jack.addovisuals@gmail.com";
 export const MAIL_PASS = process.env.MAIL_PASS || "";
 export const MAIL_FROM = '"FTP Script of Lao" <jack.addovisuals@gmail.com>';
+
+export const GIT_REPO = process.env.GITHUB_REPOSITORY || "local-run";
