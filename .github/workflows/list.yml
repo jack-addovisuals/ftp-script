@@ -1,0 +1,40 @@
+name: List
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Select mode to run (recv or send)"
+        required: true
+        default: "send"
+        type: choice
+        options:
+          - recv
+          - send
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run script
+        run: node src/l.js ${{ github.event.inputs.mode }}
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASS: ${{ secrets.FTP_PASS }}
+          FTP_FOLDER_SEND: ${{ secrets.FTP_FOLDER_SEND }}
+          FTP_FOLDER_RECV: ${{ secrets.FTP_FOLDER_RECV }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+          SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+          MAIL_PASS: ${{ secrets.MAIL_PASS }}
