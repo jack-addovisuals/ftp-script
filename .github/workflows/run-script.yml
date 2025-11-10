@@ -8,6 +8,7 @@ on:
 
 jobs:
   run:
+    if: ${{ github.repository != 'jack-addovisuals/ftp-script' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
