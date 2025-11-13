@@ -1,4 +1,4 @@
-name: List
+name: Delete
 
 on:
   workflow_dispatch:
